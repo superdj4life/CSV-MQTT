@@ -48,7 +48,7 @@ with open(CSV_FILE_NAME, mode='r') as csv_file:
 client = mqtt.Client()
 client.on_connect = on_connect # On Connect Callback.
 client.on_publish = on_publish # On Publish Callback.
-client.username_pw_set(username=MQTT_UN,password=MQTT_PW) #add authentication before connection
+client.username_pw_set(username=MQTT_USER,password=MQTT_PW) #add authentication before connection
 client.connect(MQTT_BROKER, 1883, 60) # Connecting to the MQTT Broker.
 
 while 1:
