@@ -1,4 +1,8 @@
 # CSV-MQTT
+Forked from https://github.com/srijan-sivakumar/CSV-MQTT
+Changed Publish time to a varible and added simple authentiction (username & password) 
+I would eventually like to add TLS support 
+
 A CSV to MQTT connector. Reads data from csv file and pushes it to a MQTT Broker.
 
 
