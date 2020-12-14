@@ -8,6 +8,8 @@ CSV_FILE_NAME = "sample.csv"
 MQTT_TOPIC = "sample_topic"
 MQTT_PORT = 1883
 MQTT_BROKER = "sample_broker"
+MQTT_USER = "MQTT Username"
+MQTT_PW = "MQTT Password"
 
 # Global variables.
 data_value = {}
@@ -46,6 +48,7 @@ with open(CSV_FILE_NAME, mode='r') as csv_file:
 client = mqtt.Client()
 client.on_connect = on_connect # On Connect Callback.
 client.on_publish = on_publish # On Publish Callback.
+client.username_pw_set(username=MQTT_UN,password=MQTT_PW) #add authentication before connection
 client.connect(MQTT_BROKER, 1883, 60) # Connecting to the MQTT Broker.
 
 while 1:
@@ -53,6 +56,6 @@ while 1:
         temp_data_val = str(data_value[value]).replace("'", '"')
         try:
             client.publish(MQTT_TOPIC, temp_data_val)
-            time.sleep(1)
+            time.sleep(30)
         except:
             print("Publish Failed.")
